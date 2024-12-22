@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLOGS</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <h1>Coding Blogs</h1>
+    <div class="container">
+        <%for(blog of blogs){%>
+        
+            <div class="blog">
+                <h4 class="title"><%=blog.title%></h4>
+                
+                 <div class="content main_content"><%=blog.content%></div> 
+                
+                 <a href="http://localhost:8060/blogs/<%=blog.id%>" class="more">More</a>  <br><br>
+                
+                 <div class="ed_del">
+                    <form method="get" action="/blogs/<%=blog.id%>">
+                        <button class="more">View Full Blog</button>
+                     </form> 
+                    <form method="get" action="/blogs/<%=blog.id%>/edit">
+                        <button class="ed">Edit</button>
+                     </form> 
+                     <form method="post" action="/blogs/<%=blog.id%>?_method=DELETE">
+                        <button class="del">Delete</button>
+                     </form>
+                 </div>
+                 
+            </div>
+            <%}%> 
+    </div>
+    
+        <form method="get" action="/blogs/new">
+            <button class="last">Create New Blog</button>
+        </form>
+        
+    
+</body>
+</html>
+
